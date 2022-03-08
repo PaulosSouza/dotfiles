@@ -1,0 +1,5 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhistcnt =3
+let g:netrw_dirhist_3='/home/paulosouza/Workstation/Rocketseat/rentx/src/config'
+let g:netrw_dirhist_2='/home/paulosouza/Workstation/Rocketseat/rentx/src'
+let g:netrw_dirhist_1='/home/paulosouza/Workstation/Rocketseat/rentx'
