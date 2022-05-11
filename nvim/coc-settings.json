@@ -1,5 +1,4 @@
 {
-  "suggest.echodocSupport": true,
   "suggest.maxCompleteItemCount": 20,
   "eslint.autoFixOnSave": true,
   "tsserver.formatOnType": true,
@@ -20,6 +19,5 @@
   ],
   "diagnostic.errorSign": "•",
   "diagnostic.warningSign": "•",
-  "diagnostic.infoSign": "•",
-  "prettier.disableSuccessMessage": true
+  "diagnostic.infoSign": "•"
 }
