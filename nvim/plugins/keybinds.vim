@@ -4,10 +4,12 @@ nnoremap <C-K> <C-W><C-K>
 nnoremap <C-L> <C-W><C-L>
 nnoremap <C-H> <C-W><C-H>
 
+
 " Tips
-map <A-q> <esc>
-nnoremap <A-s> :w<CR>
-nnoremap <A-w> A
+inoremap <A-k> <esc>
+nnoremap <A-j> :w<CR>
+inoremap <A-m> =
+inoremap <A-,> (
 nnoremap <silent> <leader>h :nohlsearch<CR>
 
 " Navigate between tabs
@@ -20,13 +22,6 @@ nnoremap tq :tabclose<CR>
 nnoremap th :split<CR>
 nnoremap tv :vsplit<CR>
 nnoremap tt :q<CR>
-
-" Navigate between buffers
-nnoremap bf :bfirst<CR>
-nnoremap bl :blast<CR>
-nnoremap bn :bnext<CR>
-nnoremap bv :bprevious<CR>
-nnoremap bd :bdelete<CR>
 
 " Exit terminal
 tnoremap <Esc> <C-\><C-n>

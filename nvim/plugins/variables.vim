@@ -9,8 +9,12 @@
 :set encoding=UTF-8
 :set clipboard+=unnamedplus
 :set signcolumn=yes
-:set nobackup
-:set nowritebackup
 :set splitbelow
 :set splitright
 :set nowrap
+:set hidden
+:set nobackup
+:set nowritebackup
+:set cmdheight=2
+:set updatetime=300
+let mapleader = " "

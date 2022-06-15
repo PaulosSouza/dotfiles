@@ -13,7 +13,7 @@ Plug 'ryanoasis/vim-devicons'
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 
 " Nvim tree
-Plug 'kyazdani42/nvim-web-devicons' " for file icons
+Plug 'kyazdani42/nvim-web-devicons' " 
 Plug 'kyazdani42/nvim-tree.lua'
 
 " Sintax name
@@ -41,20 +41,22 @@ Plug 'https://github.com/glepnir/dashboard-nvim'
 " Smooth Scrool
 Plug 'karb94/neoscroll.nvim'
 
-" Code diagnostic
-Plug 'folke/trouble.nvim'
-
 " Which-key
 Plug 'folke/which-key.nvim'
 
 " Multi cursor
 Plug 'mg979/vim-visual-multi', {'branch': 'master'}
 
-" LazyGit
-Plug 'kdheepak/lazygit.nvim'
+" VGit
+Plug 'https://github.com/tanvirtin/vgit.nvim'
+
+" JABS
+Plug 'https://github.com/matbme/JABS.nvim'
 
 call plug#end()
 
+source $HOME/.config/nvim/plugins/variables.vim
+source $HOME/.config/nvim/plugins/keybinds.vim
 source $HOME/.config/nvim/themes/dracula.vim
 source $HOME/.config/nvim/plugins/coc.vim
 source $HOME/.config/nvim/plugins/nvim-tree.vim
@@ -62,9 +64,7 @@ source $HOME/.config/nvim/plugins/nvim-treesitter.vim
 source $HOME/.config/nvim/plugins/airline.vim
 source $HOME/.config/nvim/plugins/telescope.vim
 source $HOME/.config/nvim/plugins/dashboard.vim
-source $HOME/.config/nvim/plugins/keybinds.vim
-source $HOME/.config/nvim/plugins/variables.vim
 source $HOME/.config/nvim/plugins/neoscroll.vim
-source $HOME/.config/nvim/plugins/trouble.vim
 source $HOME/.config/nvim/plugins/which-key.vim
-source $HOME/.config/nvim/plugins/lazygit.vim
+source $HOME/.config/nvim/plugins/jabs.vim
+source $HOME/.config/nvim/plugins/vgit.vim

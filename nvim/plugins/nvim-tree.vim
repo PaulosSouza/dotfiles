@@ -1,6 +1,3 @@
-let g:nvim_tree_git_hl = 1
-let g:nvim_tree_highlight_opened_files = 1
-let g:nvim_tree_group_empty = 1
 
 lua << EOF
 require'nvim-tree'.setup {
@@ -10,21 +7,22 @@ require'nvim-tree'.setup {
       side = 'right',
     },
   renderer = {
+    group_empty = true,
+    highlight_git = true,
+    highlight_opened_files = "icon",
     indent_markers = {
         enable = true
-      }
+      },
     },
   actions = {
     open_file = {
         quit_on_open = true
       }
     },
-  git = {
-      enable = true
-    },
   filters = {
       custom = { '.git', 'node_modules', '.cache' }
     }
+  
 }
 EOF
 

@@ -1,9 +1,17 @@
-" TextEdit might fail if hidden is not set.
-set hidden
 
-" Some servers have issues with backup files, see #649.
-set nobackup
-set nowritebackup
+inoremap <silent><expr> <cr> pumvisible() ? coc#_select_confirm()
+                              \: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
+
+inoremap <silent><expr> <TAB>
+      \ pumvisible() ? "\<C-n>" :
+      \ CheckBackspace() ? "\<TAB>" :
+      \ coc#refresh()
+inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
+
+function! CheckBackspace() abort
+  let col = col('.') - 1
+  return !col || getline('.')[col - 1]  =~# '\s'
+endfunction
 
 " Use <c-space> to trigger completion.
 if has('nvim')
@@ -20,8 +28,8 @@ nmap <silent> gr <Plug>(coc-references)
 nmap <leader>aa <Plug>(coc-codeaction)
 nmap <leader>qf <Plug>(coc-fix-current)
 nmap <leader>rn <Plug>(coc-rename)
+nmap <leader>ca :<C-u>CocList diagnostics<cr>
 
-" Use K to show documentation in preview window.
 nnoremap <silent> K :call <SID>show_documentation()<CR>
 
 function! s:show_documentation()
