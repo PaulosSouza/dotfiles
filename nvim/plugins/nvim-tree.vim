@@ -26,6 +26,6 @@ require'nvim-tree'.setup {
 }
 EOF
 
-nnoremap <C-a> :NvimTreeToggle<CR>
-nnoremap <leader>r :NvimTreeRefresh<CR>
+nnoremap <A-r> :NvimTreeToggle<CR>
+nnoremap <leader>j :NvimTreeRefresh<CR>
 nnoremap <leader>n :NvimTreeFindFile<CR>

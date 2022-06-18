@@ -2,7 +2,6 @@
   "suggest.maxCompleteItemCount": 20,
   "eslint.autoFixOnSave": true,
   "tsserver.formatOnType": true,
-  "json.trace.server": "verbose",
   "coc.preferences.formatOnSaveFiletypes": [
     "javascript",
     "typescript",
@@ -23,8 +22,15 @@
   "languageserver": {
     "graphql": {
       "command": "graphql-lsp",
-      "args": ["server", "-m", "stream"],
-      "filetypes": ["typescript", "graphql"]
+      "args": [
+        "server",
+        "-m",
+        "stream"
+      ],
+      "filetypes": [
+        "typescript",
+        "graphql"
+      ]
     }
   }
 }

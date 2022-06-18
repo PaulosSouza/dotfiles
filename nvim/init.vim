@@ -7,6 +7,7 @@ Plug 'Mofiqul/dracula.nvim'
 " Airline Plugin
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
+Plug 'enricobacis/vim-airline-clock'
 Plug 'ryanoasis/vim-devicons'
 
 " Nvim-treesitter
@@ -52,6 +53,7 @@ Plug 'https://github.com/tanvirtin/vgit.nvim'
 
 " JABS
 Plug 'https://github.com/matbme/JABS.nvim'
+
 
 call plug#end()
 
