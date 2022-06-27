@@ -4,6 +4,12 @@ call plug#begin('$HOME/.local/share/nvim/plugged')
 " Dracula theme
 Plug 'Mofiqul/dracula.nvim'
 
+" Sonokai theme
+Plug 'sainnhe/sonokai'
+
+" Nord themes
+Plug 'shaunsingh/nord.nvim'
+
 " Airline Plugin
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
@@ -58,7 +64,7 @@ call plug#end()
 
 source $HOME/.config/nvim/plugins/variables.vim
 source $HOME/.config/nvim/plugins/keybinds.vim
-source $HOME/.config/nvim/themes/dracula.vim
+source $HOME/.config/nvim/themes/nord.vim
 source $HOME/.config/nvim/plugins/coc.vim
 source $HOME/.config/nvim/plugins/nvim-tree.vim
 source $HOME/.config/nvim/plugins/nvim-treesitter.vim
