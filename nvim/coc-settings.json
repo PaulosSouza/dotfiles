@@ -4,6 +4,8 @@
   "tsserver.formatOnType": true,
   "coc.preferences.formatOnSaveFiletypes": [
     "javascript",
+    "json",
+    "jsonc",
     "typescript",
     "typescriptreact",
     "javascriptreact",
@@ -22,15 +24,8 @@
   "languageserver": {
     "graphql": {
       "command": "graphql-lsp",
-      "args": [
-        "server",
-        "-m",
-        "stream"
-      ],
-      "filetypes": [
-        "typescript",
-        "graphql"
-      ]
+      "args": ["server", "-m", "stream"],
+      "filetypes": ["typescript", "graphql"]
     }
   }
 }

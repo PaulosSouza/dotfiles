@@ -56,7 +56,7 @@ lua <<EOF
 }
 
   db.custom_footer = {
-    desc = "  +   ..."
+    desc = "  +   +   ..."
   }
 EOF
 

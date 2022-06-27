@@ -17,15 +17,14 @@ require'nvim-tree'.setup {
   actions = {
     open_file = {
         quit_on_open = true
-      }
     },
+  },
   filters = {
-      custom = { '.git', 'node_modules', '.cache' }
+      custom = { 'node_modules', '.cache' }
     }
-  
 }
 EOF
 
 nnoremap <A-r> :NvimTreeToggle<CR>
-nnoremap <leader>j :NvimTreeRefresh<CR>
-nnoremap <leader>n :NvimTreeFindFile<CR>
+nnoremap <A-t> :NvimTreeRefresh<CR>
+nnoremap <A-m> :NvimTreeFindFile<CR>

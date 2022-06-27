@@ -54,7 +54,6 @@ Plug 'https://github.com/tanvirtin/vgit.nvim'
 " JABS
 Plug 'https://github.com/matbme/JABS.nvim'
 
-
 call plug#end()
 
 source $HOME/.config/nvim/plugins/variables.vim
