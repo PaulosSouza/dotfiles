@@ -3,8 +3,8 @@ local wezterm = require 'wezterm';
 
 return {
     -- Fonts and colors
-    font=wezterm.font('FiraCode Nerd Font'),
-    font_size=14,
+    font=wezterm.font("FiraCode Nerd Font", {weight=450, stretch="Normal", style="Normal"}),
+    font_size=13,
     colors=dracula,
 
     -- TabBar
@@ -14,7 +14,10 @@ return {
 
     -- Window
     window_padding = {
-        top= 2,
+        top=2,
+        bottom=4,
+        left=2,
+        right=2
     },
 
     -- Keysbind
@@ -22,22 +25,22 @@ return {
         -- ActivatePaneDirection
         {
             key="h",
-            mods="CTRL",
+            mods="CTRL|SHIFT",
             action=wezterm.action { ActivatePaneDirection="Left" }
         },
         {
             key="l",
-            mods="CTRL",
+            mods="CTRL|SHIFT",
             action=wezterm.action { ActivatePaneDirection="Right" }
         }, 
         {
             key="k",
-            mods="CTRL",
+            mods="CTRL|SHIFT",
             action=wezterm.action { ActivatePaneDirection="Up" }
         },
         {
             key="j",
-            mods="CTRL",
+            mods="CTRL|SHIFT",
             action=wezterm.action { ActivatePaneDirection="Down" }
         },
 
