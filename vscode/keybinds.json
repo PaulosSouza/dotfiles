@@ -1,0 +1,44 @@
+[
+  {
+    "key": "Alt+e",
+    "command": "workbench.explorer.fileView.focus"
+  },
+  {
+    "key": "Alt+e",
+    "command": "workbench.action.closeSidebar",
+    "when": "explorerViewletFocus"
+  },
+   
+  {
+    "key": "Alt+a",
+    "command": "explorer.newFile"
+  },
+  {
+    "key": "Alt+f",
+    "command": "explorer.newFolder"
+  },
+  {
+    "key": "Alt+d",
+    "command": "deleteFile",
+    "when": "explorerViewletFocus"
+  },
+
+  {
+    "key": "/",
+    "command": "actions.find",
+    "when": "vim.mode == 'Normal'"
+  },
+  {
+    "key": "Alt+j",
+    "command": "workbench.action.files.save",
+    "when": "vim.mode == 'Normal'"
+  },
+  {
+    "key": "Alt+j",
+    "command": "vim.remap",
+    "when": "vim.mode == 'Insert'",
+    "args": {
+      "after": ["<Esc>"]
+    }
+  }
+]
