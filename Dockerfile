@@ -1,10 +1,9 @@
 FROM ubuntu:latest
 
-WORKDIR /worker
+WORKDIR /app
 
 RUN apt-get update && \
-      apt-get -y install sudo && \
-      sudo apt install -y zsh 
+      apt-get -y install sudo
 
 COPY . .
 
