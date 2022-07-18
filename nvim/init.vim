@@ -2,7 +2,7 @@
 call plug#begin('$HOME/.local/share/nvim/plugged')
 
 " Dracula theme
-Plug 'Mofiqul/dracula.nvim'
+Plug 'dracula/vim', { 'as': 'dracula' }
 
 " Sonokai theme
 Plug 'sainnhe/sonokai'
@@ -36,6 +36,7 @@ Plug 'jiangmiao/auto-pairs'
 Plug 'dense-analysis/ale'
 
 if (has("nvim"))
+    Plug 'junegunn/fzf', { 'do': { -> fzf#install() } } 
     Plug 'nvim-lua/plenary.nvim'
     Plug 'nvim-telescope/telescope.nvim'
     Plug 'nvim-telescope/telescope-fzf-native.nvim', { 'do': 'make' }
@@ -64,7 +65,7 @@ call plug#end()
 
 source $HOME/.config/nvim/plugins/variables.vim
 source $HOME/.config/nvim/plugins/keybinds.vim
-source $HOME/.config/nvim/themes/nord.vim
+source $HOME/.config/nvim/themes/dracula.vim
 source $HOME/.config/nvim/plugins/coc.vim
 source $HOME/.config/nvim/plugins/nvim-tree.vim
 source $HOME/.config/nvim/plugins/nvim-treesitter.vim
