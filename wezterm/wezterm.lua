@@ -1,10 +1,10 @@
+local dracula = require 'dracula';
 local wezterm = require 'wezterm';
-local dracula = require 'dracula'
 
 return {
     -- Fonts and colors
     font=wezterm.font("FiraCode Nerd Font", {weight=450, stretch="Normal", style="Normal"}),
-    font_size=18,
+    font_size=14,
     colors=dracula,
 
     -- TabBar
@@ -16,8 +16,14 @@ return {
     window_padding = {
         top=2,
         bottom=4,
-        left=6,
-        right=2
+        left=8,
+        right=4
+    },
+
+    window_background_image='/home/paulosouza/Pictures/wallpapers/wez-wallpaper.jpg',
+
+     window_background_image_hsb = {
+      brightness = 0.05,
     },
 
     -- Keysbind
