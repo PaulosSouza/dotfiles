@@ -1,7 +1,7 @@
 lua << EOF
 require('telescope').setup {
   defaults = {
-    file_ignore_patterns = { "yarn.lock", "node_modules" }
+    file_ignore_patterns = { "yarn.lock", "node_modules", "package-lock.json" }
   },
   extensions = {
     fzf = {
