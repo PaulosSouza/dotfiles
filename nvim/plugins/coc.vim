@@ -44,4 +44,4 @@ endfunction
 
 autocmd CursorHold * silent call CocActionAsync('highlight')
 
-let g:coc_global_extensions = ['coc-tslint-plugin', 'coc-tsserver', 'coc-css', 'coc-html', 'coc-prettier', 'coc-eslint', 'coc-json', 'coc-go']
+"let g:coc_global_extensions = ['coc-tslint-plugin', 'coc-tsserver', 'coc-css', 'coc-html', 'coc-prettier', 'coc-eslint', 'coc-json', 'coc-go']

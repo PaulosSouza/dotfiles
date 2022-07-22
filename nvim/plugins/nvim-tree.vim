@@ -20,7 +20,7 @@ require'nvim-tree'.setup {
     },
   },
   filters = {
-      custom = { 'node_modules', '.cache', }
+      custom = { 'node_modules', '.cache' }
     }
 }
 EOF
