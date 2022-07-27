@@ -32,8 +32,6 @@ Plug 'neoclide/coc.nvim', { 'branch': 'release' }
 " Highlighting and indenting JSX and TSX
 Plug 'jiangmiao/auto-pairs'
 
-" Check syntax
-Plug 'dense-analysis/ale'
 
 if (has("nvim"))
     Plug 'junegunn/fzf', { 'do': { -> fzf#install() } } 
@@ -68,11 +66,14 @@ Plug 'hrsh7th/cmp-nvim-lsp'
 Plug 'saadparwaiz1/cmp_luasnip'
 Plug 'L3MON4D3/LuaSnip' 
 
+" Trouble
+Plug 'folke/trouble.nvim'
+
 call plug#end()
 
 source $HOME/.config/nvim/plugins/variables.vim
 source $HOME/.config/nvim/plugins/keybinds.vim
-source $HOME/.config/nvim/themes/dracula.vim
+source $HOME/.config/nvim/themes/nord.vim
 source $HOME/.config/nvim/plugins/nvim-lspconfig.vim
 source $HOME/.config/nvim/plugins/nvim-cmp.vim
 source $HOME/.config/nvim/plugins/nvim-tree.vim
@@ -84,3 +85,4 @@ source $HOME/.config/nvim/plugins/neoscroll.vim
 source $HOME/.config/nvim/plugins/which-key.vim
 source $HOME/.config/nvim/plugins/jabs.vim
 source $HOME/.config/nvim/plugins/vgit.vim
+source $HOME/.config/nvim/plugins/trouble.vim
