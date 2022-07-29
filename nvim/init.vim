@@ -31,7 +31,8 @@ Plug 'neoclide/coc.nvim', { 'branch': 'release' }
 
 " Highlighting and indenting JSX and TSX
 Plug 'jiangmiao/auto-pairs'
-
+Plug 'leafgarland/typescript-vim'
+Plug 'peitalin/vim-jsx-typescript'
 
 if (has("nvim"))
     Plug 'junegunn/fzf', { 'do': { -> fzf#install() } } 
@@ -69,6 +70,9 @@ Plug 'L3MON4D3/LuaSnip'
 " Trouble
 Plug 'folke/trouble.nvim'
 
+" Markdown Preview
+Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install' }
+
 call plug#end()
 
 source $HOME/.config/nvim/plugins/variables.vim
@@ -86,3 +90,5 @@ source $HOME/.config/nvim/plugins/which-key.vim
 source $HOME/.config/nvim/plugins/jabs.vim
 source $HOME/.config/nvim/plugins/vgit.vim
 source $HOME/.config/nvim/plugins/trouble.vim
+source $HOME/.config/nvim/plugins/vim-jsx-typescript.vim
+source $HOME/.config/nvim/plugins/markdown-preview.vim

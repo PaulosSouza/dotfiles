@@ -1,5 +1,10 @@
 lua << EOF
+
 local util = require "lspconfig/util"
+
+local capabilities = vim.lsp.protocol.make_client_capabilities()
+capabilities.textDocument.completion.completionItem.snippetSupport = true
+
 require 'lspconfig'.tsserver.setup{
     on_attach = function(client)
         client.resolved_capabilities.document_formatting = false
@@ -8,6 +13,20 @@ require 'lspconfig'.tsserver.setup{
 }
 
 require'lspconfig'.eslint.setup{}
+
+require'lspconfig'.html.setup{
+  capabilities = capabilities,
+}
+
+require'lspconfig'.cssls.setup {
+  capabilities = capabilities,
+}
+
+require'lspconfig'.emmet_ls.setup{
+  capabilities = capabilities,
+  filetypes = { 'html', 'typescriptreact', 'javascriptreact', 'css', 'sass', 'scss', 'less' },
+}
+
 EOF
 
 nnoremap <silent> gd    <cmd>lua vim.lsp.buf.definition()<CR>
