@@ -10,10 +10,7 @@ Plug 'sainnhe/sonokai'
 " Nord themes
 Plug 'shaunsingh/nord.nvim'
 
-" Airline Plugin
-Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
-Plug 'enricobacis/vim-airline-clock'
+" Devicons
 Plug 'ryanoasis/vim-devicons'
 
 " Nvim-treesitter
@@ -54,9 +51,6 @@ Plug 'folke/which-key.nvim'
 " Multi cursor
 Plug 'mg979/vim-visual-multi', {'branch': 'master'}
 
-" VGit
-Plug 'https://github.com/tanvirtin/vgit.nvim'
-
 " JABS
 Plug 'https://github.com/matbme/JABS.nvim'
     
@@ -73,6 +67,11 @@ Plug 'folke/trouble.nvim'
 " Markdown Preview
 Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install' }
 
+"Bufferline
+Plug 'akinsho/bufferline.nvim', { 'tag': 'v2.*' }
+
+" Lualine
+Plug 'nvim-lualine/lualine.nvim'
 call plug#end()
 
 source $HOME/.config/nvim/plugins/variables.vim
@@ -82,13 +81,13 @@ source $HOME/.config/nvim/plugins/nvim-lspconfig.vim
 source $HOME/.config/nvim/plugins/nvim-cmp.vim
 source $HOME/.config/nvim/plugins/nvim-tree.vim
 source $HOME/.config/nvim/plugins/nvim-treesitter.vim
-source $HOME/.config/nvim/plugins/airline.vim
 source $HOME/.config/nvim/plugins/telescope.vim
 source $HOME/.config/nvim/plugins/dashboard.vim
 source $HOME/.config/nvim/plugins/neoscroll.vim
 source $HOME/.config/nvim/plugins/which-key.vim
 source $HOME/.config/nvim/plugins/jabs.vim
-source $HOME/.config/nvim/plugins/vgit.vim
 source $HOME/.config/nvim/plugins/trouble.vim
 source $HOME/.config/nvim/plugins/vim-jsx-typescript.vim
 source $HOME/.config/nvim/plugins/markdown-preview.vim
+source $HOME/.config/nvim/plugins/bufferline.vim
+source $HOME/.config/nvim/plugins/lualine.vim
