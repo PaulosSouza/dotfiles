@@ -24,14 +24,18 @@ local on_attach = function(client, bufnr)
     print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
   end, bufopts)
   vim.keymap.set('n', 'gt', vim.lsp.buf.type_definition, bufopts)
-  vim.keymap.set('n', '<space>rn', vim.lsp.buf.rename, bufopts)
-  vim.keymap.set('n', '<space>ca', vim.lsp.buf.code_action, bufopts)
+  vim.keymap.set('n', '<leader>rn', vim.lsp.buf.rename, bufopts)
+  vim.keymap.set('n', '<leader>ca', vim.lsp.buf.code_action, bufopts)
   vim.keymap.set('n', 'gr', vim.lsp.buf.references, bufopts)
-  vim.keymap.set('n', '<space>f', vim.lsp.buf.formatting, bufopts)
+  vim.keymap.set('n', '<leader>aa', vim.lsp.buf.formatting, bufopts)
 end
 
 local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities.textDocument.completion.completionItem.snippetSupport = true
+
+local lsp_flags = {
+  debounce_text_changes = 150,
+}
 
 require 'lspconfig'.tsserver.setup{
     on_attach = on_attach,
@@ -39,6 +43,7 @@ require 'lspconfig'.tsserver.setup{
 }
 
 require'lspconfig'.eslint.setup{
+  capabilities = capabilities, 
   on_attach = on_attach
 }
 
@@ -58,6 +63,24 @@ require'lspconfig'.emmet_ls.setup{
   on_attach = on_attach
 }
 
+require'lspconfig'.gopls.setup{
+  capabilities = capabilities, 
+  on_attach = on_attach
+}
+
+require'lspconfig'.prismals.setup {
+  on_attach = on_attach,
+}
+
+require'lspconfig'.jsonls.setup{
+  capabilities = capabilities, 
+  on_attach = on_attach,
+}
+
+require'lspconfig'.bashls.setup{
+ capabilities = capabilities, 
+ on_attach = on_attach, 
+}
 EOF
 
 autocmd BufWritePre *.tsx,*.ts,*.jsx,*.js EslintFixAll

@@ -72,6 +72,13 @@ Plug 'akinsho/bufferline.nvim', { 'tag': 'v2.*' }
 
 " Lualine
 Plug 'nvim-lualine/lualine.nvim'
+
+" Comment
+Plug 'terrortylor/nvim-comment'
+
+" Prisma LSP
+Plug 'pantharshit00/vim-prisma'
+
 call plug#end()
 
 source $HOME/.config/nvim/plugins/variables.vim
@@ -91,3 +98,4 @@ source $HOME/.config/nvim/plugins/vim-jsx-typescript.vim
 source $HOME/.config/nvim/plugins/markdown-preview.vim
 source $HOME/.config/nvim/plugins/bufferline.vim
 source $HOME/.config/nvim/plugins/lualine.vim
+source $HOME/.config/nvim/plugins/nvim-comment.vim

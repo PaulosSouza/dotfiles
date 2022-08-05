@@ -43,12 +43,12 @@ require('lualine').setup {
         sources = { 'nvim_lsp', 'ale', 'coc' },
         sections = { 'error', 'warn', 'info', 'hint' },
         diagnostics_color = {
-          error = 'DiagnosticError', -- Changes diagnostics' error color.
-          warn  = 'DiagnosticWarn',  -- Changes diagnostics' warn color.
-          info  = 'DiagnosticInfo',  -- Changes diagnostics' info color.
-          hint  = 'DiagnosticHint',  -- Changes diagnostics' hint color.
+          error = 'DiagnosticError',
+          warn  = 'DiagnosticWarn', 
+          info  = 'DiagnosticInfo',  
+          hint  = 'DiagnosticHint', 
         },
-        symbols = {error = ' ', warn = '', info = ' ', hint = ''},
+        symbols = {error = ' ', warn = ' ', info = ' ', hint = ''},
         colored = true,           -- Displays diagnostics status in color if set to true.
         update_in_insert = false, -- Update diagnostics in insert mode.
         always_visible = false,   -- Show diagnostics even if there are none.
