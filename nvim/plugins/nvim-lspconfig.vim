@@ -47,7 +47,7 @@ require'lspconfig'.prismals.setup {
 
 local lspconfig = require('lspconfig')
 
-local servers = { 'tsserver', 'eslint', 'html', 'cssls', 'gopls', 'jsonls', 'bashls', 'golangci_lint_ls' }
+local servers = { 'tsserver', 'eslint', 'html', 'cssls', 'gopls', 'jsonls', 'bashls', 'golangci_lint_ls', 'sqls'}
 for _, lsp in ipairs(servers) do 
   lspconfig[lsp].setup {
     on_attach = on_attach,
