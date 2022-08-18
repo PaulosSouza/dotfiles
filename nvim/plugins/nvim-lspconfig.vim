@@ -32,30 +32,8 @@ end
 
 local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities.textDocument.completion.completionItem.snippetSupport = true
+capabilities = require('cmp_nvim_lsp').update_capabilities(capabilities)
 
-local lsp_flags = {
-  debounce_text_changes = 150,
-}
-
-require 'lspconfig'.tsserver.setup{
-    on_attach = on_attach,
-    root_dir = util.root_pattern(".git", "tsconfig.json", "jsconfig.json"),
-}
-
-require'lspconfig'.eslint.setup{
-  capabilities = capabilities, 
-  on_attach = on_attach
-}
-
-require'lspconfig'.html.setup{
-  capabilities = capabilities,
-  on_attach = on_attach
-}
-
-require'lspconfig'.cssls.setup {
-  capabilities = capabilities, 
-  on_attach = on_attach
-}
 
 require'lspconfig'.emmet_ls.setup{
   capabilities = capabilities,
@@ -63,24 +41,19 @@ require'lspconfig'.emmet_ls.setup{
   on_attach = on_attach
 }
 
-require'lspconfig'.gopls.setup{
-  capabilities = capabilities, 
-  on_attach = on_attach
-}
-
 require'lspconfig'.prismals.setup {
   on_attach = on_attach,
 }
 
-require'lspconfig'.jsonls.setup{
-  capabilities = capabilities, 
-  on_attach = on_attach,
-}
+local lspconfig = require('lspconfig')
 
-require'lspconfig'.bashls.setup{
- capabilities = capabilities, 
- on_attach = on_attach, 
-}
+local servers = { 'tsserver', 'eslint', 'html', 'cssls', 'gopls', 'jsonls', 'bashls', 'golangci_lint_ls' }
+for _, lsp in ipairs(servers) do 
+  lspconfig[lsp].setup {
+    on_attach = on_attach,
+    capabilities,
+  }
+end
 EOF
 
 autocmd BufWritePre *.tsx,*.ts,*.jsx,*.js EslintFixAll

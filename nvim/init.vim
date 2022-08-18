@@ -79,6 +79,11 @@ Plug 'terrortylor/nvim-comment'
 " Prisma LSP
 Plug 'pantharshit00/vim-prisma'
 
+" Nvim-dap
+Plug 'mfussenegger/nvim-dap'
+Plug 'rcarriga/nvim-dap-ui'
+Plug 'mxsdev/nvim-dap-vscode-js'
+
 call plug#end()
 
 source $HOME/.config/nvim/plugins/variables.vim
@@ -99,3 +104,5 @@ source $HOME/.config/nvim/plugins/markdown-preview.vim
 source $HOME/.config/nvim/plugins/bufferline.vim
 source $HOME/.config/nvim/plugins/lualine.vim
 source $HOME/.config/nvim/plugins/nvim-comment.vim
+source $HOME/.config/nvim/plugins/nvim-dap-ui.vim
+source $HOME/.config/nvim/plugins/nvim-dap.vim
