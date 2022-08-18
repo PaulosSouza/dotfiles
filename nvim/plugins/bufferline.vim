@@ -10,7 +10,9 @@ diagnostics_indicator = function(count, level, diagnostics_dict, context)
 end
 
 require("bufferline").setup{
-  diagnostics_indicator=diagnostics_indicator
+  options = {
+    diagnostics_indicator=diagnostics_indicator
+  }
 }
 EOF
 
