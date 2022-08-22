@@ -21,22 +21,22 @@ sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/too
 # Pull dotfiles
 git clone https://github.com/PaulosSouza/Dotfiles.git dotfiles
 
-# Copy zshrc file
+# Zshrc config
 cp -r ~/Workspace/dotfiles/zsh/.zshrc ~/.zshrc
 
-# Create nvim config
+# Nvim config
 mkdir -p ~/.config/nvim
 cp -r ~/Workspace/dotfiles/nvim ~/.config/
 
-# Create wezterm config
+# Wezterm config
 mkdir -p ~/.config/wezterm
 cp -r ~/Workspace/dotfiles/wezterm ~/.config/
 
 # Install others plugins according to each os way
 if [[ "$OSTYPE" == "linux-gnu"* ]]; then
-  sh scripts/os/linux.sh
+  sh ~/Workspace/dotfiles/scripts/os/linux.sh
 elif [[ "$OSTYPE" == "darwin"* ]]; then
-  sh scripts/os/linux.sh
+  sh s~/Workspace/dotfiles/scripts/os/linux.sh
 fi
 
 # Add asdf-nodejs 
