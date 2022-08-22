@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Create tmp folder
-cd && mkdir tmp && cd tmp
+mkdir -p ~/Workspace && cd ~/Workspace
 
 # Install git
 sudo apt-get install -y git
@@ -18,46 +18,35 @@ sudo apt-get -y install build-essential
 # Install ohmyzsh
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 
-# Copy zshrc file
-cp -r ./zsh/.zshrc ~/.zshrc
+# Pull dotfiles
+git clone https://github.com/PaulosSouza/Dotfiles.git dotfiles
 
-# Install neovim
-if [ "$(expr substr $(uname -s) 1 5)" == "Linux" ]; then
-  curl -LO https://github.com/neovim/neovim/releases/latest/download/nvim.appimage
-  chmod u+x nvim.appimage
-  ./nvim.appimage --appimage-extract
-  ./squashfs-root/AppRun --version
-  sudo mv squashfs-root /
-  sudo ln -s /squashfs-root/AppRun /usr/bin/nvim
-elif ["$(uname)" == "Darwin"]; then
-  brew install neovim
-fi
+# Copy zshrc file
+cp -r ~/Workspace/dotfiles/zsh/.zshrc ~/.zshrc
 
 # Create nvim config
 mkdir -p ~/.config/nvim
-cp -r ~/Projects/dotfiles/nvim ~/.config
+cp -r ~/Workspace/dotfiles/nvim ~/.config/
 
-# Install PlugInstall
-sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs \
-       https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
+# Create wezterm config
+mkdir -p ~/.config/wezterm
+cp -r ~/Workspace/dotfiles/wezterm ~/.config/
 
-# Install asdf and dependencies for nodejs | lazygit(mac)
-if ["$(uname)" == "Darwin"]; then
-  brew install asdf gpg gawk jesseduffield/lazygit/lazygit
-  echo -e "\n. $(brew --prefix asdf)/libexec/asdf.sh" >> ${ZDOTDIR:-~}/.zshrc
-elif [ "$(expr substr $(uname -s) 1 5)" == "Linux" ]; then
-  git clone https://github.com/asdf-vm/asdf.git ~/.asdf --branch v0.10.2 
-  sudo apt-get install -y dirmngr gpg curl gawk
-  cd && . $HOME/.asdf/asdf.sh && . $HOME/.asdf/completions/asdf.bash
+# Install others plugins according to each os way
+if [[ "$OSTYPE" == "linux-gnu"* ]]; then
+  sh scripts/os/linux.sh
+elif [[ "$OSTYPE" == "darwin"* ]]; then
+  sh scripts/os/linux.sh
 fi
 
-exit
+# Add asdf-nodejs 
+# asdf plugin add nodejs https://github.com/asdf-vm/asdf-nodejs.git
+# asdf install nodejs lts
+# asdf global nodejs lts
 
-# Add nodejs via asdf
-asdf plugin add nodejs https://github.com/asdf-vm/asdf-nodejs.git
-asdf install nodejs lts
-asdf global nodejs lts
+# Add asdf-go 
+# TODO: add asdf-go and its dependecies
 
 # Install lsp dependencies
-npm i -g npm yarn typescript typescript-language-server vscode-langservers-extracted emmet-ls typescript-styled-plugin
+#npm i -g npm yarn typescript typescript-language-server vscode-langservers-extracted emmet-ls typescript-styled-plugin
 
