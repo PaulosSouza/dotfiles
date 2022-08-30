@@ -3,10 +3,17 @@ local wezterm = require 'wezterm';
 
 return {
     -- Fonts and colors
+    -- 1920 x 1080
     font=wezterm.font("Jetbrains Mono", {weight="Regular", stretch="Normal", style="Normal"}),
     font_size=16,
     color_scheme="nord",
     line_height=1.3,
+
+    -- Others resolutions
+    -- font=wezterm.font("FiraCode Nerd Font", {weight=450, stretch="Normal", style="Normal"}),
+    -- font_size=18,
+    -- color_scheme="nord",
+    -- line_height=1.2,
 
     -- TabBar
     tab_bar_at_bottom=true,
