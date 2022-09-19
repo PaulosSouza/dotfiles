@@ -1,6 +1,24 @@
 local home = os.getenv("HOME")
 package.path = package.path .. ";" .. home .. "/.config/lvim/?.lua"
 
+lvim.plugins = {
+  { 'shaunsingh/nord.nvim' },
+  { 'karb94/neoscroll.nvim' },
+  { 'matbme/JABS.nvim' },
+  {
+    "folke/trouble.nvim",
+    cmd = "TroubleToggle",
+  },
+  { 'mg979/vim-visual-multi', branch = 'master' },
+  { "rcarriga/nvim-dap-ui", requires = { "mfussenegger/nvim-dap" } },
+  { "mxsdev/nvim-dap-vscode-js", requires = { "mfussenegger/nvim-dap" } },
+  {
+    "microsoft/vscode-js-debug",
+    opt = true,
+    run = "npm install --legacy-peer-deps && npm run compile"
+  }
+}
+
 require("plugins.nord")
 require("plugins.bufferline")
 require("plugins.neoscroll")
@@ -12,6 +30,8 @@ require("plugins.treesitter")
 require("plugins.jabs")
 require("plugins.telescopes")
 require("plugins.formaters")
+require("plugins.dap")
+require("plugins.dapui")
 
 -- general
 lvim.log.level = "warn"
@@ -24,6 +44,8 @@ lvim.builtin.alpha.active = true
 lvim.builtin.bufferline.active = true
 lvim.builtin.nvimtree.active = true
 lvim.builtin.project.active = false
+lvim.builtin.terminal.active = true
+
 
 -- Change Telescope navigation to use j and k for navigation and n and p for history in both input and normal mode.
 -- we use protected-mode (pcall) just in case the plugin wasn't loaded yet.
@@ -101,17 +123,7 @@ lvim.builtin.project.active = false
 -- }
 
 -- Additional Plugins
-lvim.plugins = {
-  { 'shaunsingh/nord.nvim' },
-  { 'karb94/neoscroll.nvim' },
-  { 'matbme/JABS.nvim' },
-  {
-    "folke/trouble.nvim",
-    cmd = "TroubleToggle",
-  },
-  { "rcarriga/nvim-dap-ui", requires = { "mfussenegger/nvim-dap" } },
-  { 'mg979/vim-visual-multi', branch = 'master' }
-}
+
 
 -- Autocommands (https://neovim.io/doc/user/autocmd.html)
 -- vim.api.nvim_create_autocmd("BufEnter", {
