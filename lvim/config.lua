@@ -5,7 +5,7 @@ require("plugins.nord")
 require("plugins.bufferline")
 require("plugins.neoscroll")
 require("plugins.keybinds")
-require("plugins.dashboard")
+require("plugins.alpha")
 require("plugins.nvim-tree")
 require("plugins.trouble")
 require("plugins.treesitter")
@@ -20,7 +20,7 @@ vim.opt.cursorline = false
 
 -- After changing plugin config exit and reopen LunarVim, Run :PackerInstall :PackerCompile
 lvim.builtin.terminal.active = true
-lvim.builtin.alpha.active = false
+lvim.builtin.alpha.active = true
 lvim.builtin.bufferline.active = true
 lvim.builtin.nvimtree.active = true
 lvim.builtin.project.active = false
@@ -104,7 +104,6 @@ lvim.builtin.project.active = false
 lvim.plugins = {
   { 'shaunsingh/nord.nvim' },
   { 'karb94/neoscroll.nvim' },
-  { 'glepnir/dashboard-nvim' },
   { 'matbme/JABS.nvim' },
   {
     "folke/trouble.nvim",
