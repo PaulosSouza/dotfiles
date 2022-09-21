@@ -38,6 +38,7 @@ require("plugins.telescopes")
 require("plugins.formaters")
 require("plugins.dap")
 require("plugins.dapui")
+require("plugins.lsp")
 
 -- general
 lvim.log.level = "warn"
@@ -51,7 +52,6 @@ lvim.builtin.bufferline.active = true
 lvim.builtin.nvimtree.active = true
 lvim.builtin.project.active = false
 lvim.builtin.terminal.active = true
-
 
 -- Change Telescope navigation to use j and k for navigation and n and p for history in both input and normal mode.
 -- we use protected-mode (pcall) just in case the plugin wasn't loaded yet.
@@ -74,10 +74,6 @@ lvim.builtin.terminal.active = true
 -- generic LSP settings
 
 -- -- make sure server will always be installed even if the server is in skipped_servers list
--- lvim.lsp.installer.setup.ensure_installed = {
---     "sumeko_lua",
---     "jsonls",
--- }
 -- -- change UI setting of `LspInstallInfo`
 -- -- see <https://github.com/williamboman/nvim-lsp-installer#default-configuration>
 -- lvim.lsp.installer.setup.ui.check_outdated_servers_on_open = false
