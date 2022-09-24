@@ -22,13 +22,20 @@ lvim.plugins = {
     config = function()
       require("nvim-ts-autotag")
     end
-  }
+  },
+  {
+    "iamcco/markdown-preview.nvim",
+    run = "cd app && npm install",
+    ft = "markdown",
+    config = function()
+      vim.g.mkdp_auto_start = 1
+    end,
+  },
 }
 
 require("plugins.nord")
 require("plugins.bufferline")
 require("plugins.neoscroll")
-require("plugins.keybinds")
 require("plugins.alpha")
 require("plugins.nvim-tree")
 require("plugins.trouble")
@@ -36,9 +43,10 @@ require("plugins.treesitter")
 require("plugins.jabs")
 require("plugins.telescopes")
 require("plugins.formaters")
-require("plugins.dap")
 require("plugins.dapui")
 require("plugins.lsp")
+require("plugins.dap")
+require("plugins.keybinds")
 
 -- general
 lvim.log.level = "warn"
@@ -51,7 +59,6 @@ lvim.builtin.alpha.active = true
 lvim.builtin.bufferline.active = true
 lvim.builtin.nvimtree.active = true
 lvim.builtin.project.active = false
-lvim.builtin.terminal.active = true
 
 -- Change Telescope navigation to use j and k for navigation and n and p for history in both input and normal mode.
 -- we use protected-mode (pcall) just in case the plugin wasn't loaded yet.
