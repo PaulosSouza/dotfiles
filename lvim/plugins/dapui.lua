@@ -1,7 +1,7 @@
 require("dapui").setup()
 
-lvim.builtin.which_key.mappings["D"] = {
+lvim.builtin.which_key.mappings["m"] = {
   name = "+Dapui",
-  o = { "<cmd>lua require'dapui'.open()<cr>", "Open UI" },
-  c = { "<cmd>lua require'dapui'.close()<cr>", "Close UI" }
+  m = { "<cmd>lua require'dapui'.open()<cr>", "Open UI" },
+  n = { "<cmd>lua require'dapui'.close()<cr>", "Close UI" }
 }

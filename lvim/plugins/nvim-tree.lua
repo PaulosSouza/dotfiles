@@ -1,6 +1,6 @@
 lvim.builtin.nvimtree.active = true
 lvim.builtin.nvimtree.setup.view.width = 35
-lvim.builtin.nvimtree.setup.view.side = "right"
+lvim.builtin.nvimtree.setup.view.side = "left"
 lvim.builtin.nvimtree.setup.renderer = {
   group_empty = true,
   highlight_git = true,
@@ -19,7 +19,7 @@ lvim.builtin.nvimtree.setup.actions = {
     enable = false
   },
   open_file = {
-    quit_on_open = true
+    quit_on_open = false
   }
 }
 

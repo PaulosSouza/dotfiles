@@ -33,7 +33,6 @@ lvim.plugins = {
   },
 }
 
-require("plugins.nord")
 require("plugins.bufferline")
 require("plugins.neoscroll")
 require("plugins.alpha")
@@ -47,6 +46,8 @@ require("plugins.dapui")
 require("plugins.lsp")
 require("plugins.dap")
 require("plugins.keybinds")
+require("plugins.nord")
+
 
 -- general
 lvim.log.level = "warn"
