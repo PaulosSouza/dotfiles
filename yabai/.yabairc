@@ -37,7 +37,8 @@ yabai -m config window_gap                   15
 # apps to not manage (ignore)
 yabai -m rule --add app="^System Preferences$" manage=off
 yabai -m rule --add app="^Archive Utility$" manage=off
-yabai -m rule --add app="^Logi Options$" manage=off
 yabai -m rule --add app="^Alfred Preferences$" manage=off
+yabai -m rule --add app="^OnScreen Control$" manage=off
+yabai -m rule --add app="^VirtualBox$" manage=off
 
 echo "yabai configuration loaded.."
