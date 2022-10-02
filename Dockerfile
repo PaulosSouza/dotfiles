@@ -7,6 +7,6 @@ RUN apt-get update && \
 
 COPY . .
 
-RUN chmod +x ./scripts/install.sh ./scripts/os/linux.sh ./scripts/os/mac.sh
+RUN chmod +x ./install.sh ./scripts/os/linux.sh ./scripts/os/mac.sh
 
-RUN ./scripts/install.sh
+RUN ./install.sh
