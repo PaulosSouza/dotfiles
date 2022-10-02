@@ -1,8 +1,5 @@
 #!/usr/bin/env bash
 
-# Create Workspace folder
-mkdir -p ~/Workspace && cd ~/Workspace
-
 # Install git
 sudo apt-get install -y git
 
@@ -15,30 +12,27 @@ sudo apt-get install -y curl
 # Install build essentials
 sudo apt-get -y install build-essential
 
-# Pull dotfiles
-git clone https://github.com/PaulosSouza/Dotfiles.git dotfiles && cd dotfiles
-
 # Nvim config
 mkdir -p ~/.config/nvim
-cp -r ~/Workspace/dotfiles/nvim/* ~/.config/nvim
+cp -r ./nvim/* ~/.config/nvim
 
 # Kitty config
 mkdir -p ~/.config/kitty
-cp -r ~/Workspace/dotfiles/kitty/* ~/.config/kitty
+cp -r ./kitty/* ~/.config/kitty
 
 # Install ohmyzsh
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended
 
+# Change default shell to zsh
+chsh -s $(which zsh)
+
 # Copy zshrc
-cp -r ~/Workspace/dotfiles/zsh/.zshrc ~/.zshrc
+cp -r ./zsh/.zshrc ~/.zshrc
 
+# Detect a OS and run depending what was found
 if [[ "$OSTYPE" == "linux-gnu"* ]]; then
-bash ~/Workspace/dotfiles/scripts/os/linux.sh
+bash ./scripts/os/linux.sh
 elif [[ "$OSTYPE" == "darwin"* ]]; then 
-bash ~/Workspace/dotfiles/scripts/os/mac.sh
+bash ./scripts/os/mac.sh
 fi
-
-# Copy lunarvim
-mkdir -p ~/.config/lvim
-cp -r ~/Workspace/dotfiles/lvim/* ~/.config/lvim
 

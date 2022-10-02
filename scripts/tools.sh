@@ -1,6 +1,5 @@
 #!/bin/bash
 
-
 # Add asdf-nodejs 
 asdf plugin-add nodejs https://github.com/asdf-vm/asdf-nodejs.git
 asdf install nodejs latest
@@ -20,4 +19,7 @@ asdf global rust stable
 # Install Lunarvim
 npm i -g yarn npm
 bash <(curl -s https://raw.githubusercontent.com/lunarvim/lunarvim/master/utils/installer/install.sh)
+
+# Copy lunarvim
+cp -r ./lvim/* ~/.config/lvim
 
