@@ -1,11 +1,20 @@
-#!/bin/zsh
+#!/usr/bin/env zsh
 
-# Install asdf and dependencies for nodejs | lazygit(mac)
-# if [ "$(expr substr $(uname -s) 1 5)" == "linux" ]; then
-#   git clone https://github.com/asdf-vm/asdf.git ~/.asdf --branch v0.10.2 
-#   sudo apt-get install -y dirmngr gpg curl gawk
-#   cd && . $HOME/.asdf/asdf.sh && . $HOME/.asdf/completions/asdf.bash 
-# elif ["$(uname)" == "darwin"]; then
-#   brew install asdf gpg gawk jesseduffield/lazygit/lazygit
-#   echo -e "\n. $(brew --prefix asdf)/libexec/asdf.sh" >> ${ZDOTDIR:-~}/.zshrc
-# fi
+# Copy yabai
+cp -r ~/Workspace/dotfiles/yabai/.yabairc ~/.yabairc
+
+# Copy s
+cp -r ~/Workspace/dotfiles/skhd/.skhdrc ~/.skhdrc
+
+# Install homebrew
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+
+# Install Asdf
+brew install asdf
+echo -e "\n. $(brew --prefix asdf)/libexec/asdf.sh" >> ${ZDOTDIR:-~}/.zshrc
+
+# Asdf-node dependencies
+brew install gpg gawk
+
+# Asdf-go dependencies
+brew install coreutils
