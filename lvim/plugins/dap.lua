@@ -1,7 +1,7 @@
 lvim.builtin.dap.active = true
 
 require("dap-vscode-js").setup({
-  debugger_path = os.getenv("HOME") .. "/.local/share/lunarvim/site/pack/packer/opt/vscode-js-debug",
+  -- debugger_path = path of vscode-js-debug,
   adapters = { 'pwa-node' },
 })
 
