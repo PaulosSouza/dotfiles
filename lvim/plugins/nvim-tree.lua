@@ -1,5 +1,5 @@
 lvim.builtin.nvimtree.active = true
-lvim.builtin.nvimtree.setup.view.width = 35
+lvim.builtin.nvimtree.setup.view.width = 45
 lvim.builtin.nvimtree.setup.view.side = "left"
 lvim.builtin.nvimtree.setup.renderer = {
   group_empty = true,
