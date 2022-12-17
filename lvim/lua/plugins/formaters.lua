@@ -1,5 +1,3 @@
--- -- set additional linters
-
 local formatters = require "lvim.lsp.null-ls.formatters"
 formatters.setup {
   { name = "prettierd", filetypes = { "javascript", "typescript", "typescriptreact", "javascriptreact", "html", "css" } },

@@ -38,14 +38,15 @@ require("plugins.treesitter")
 require("plugins.jabs")
 require("plugins.telescopes")
 require("plugins.formaters")
-require("plugins.lsp")
 require("plugins.keybinds")
 require("plugins.catppuccin")
 require("plugins.bufferline")
+require("plugins.statusline")
 
 -- general
 lvim.log.level = "warn"
 lvim.format_on_save = true
+lvim.builtin.treesitter.auto_install = true
 vim.opt.cursorline = false
 
 lvim.builtin.project.active = false
