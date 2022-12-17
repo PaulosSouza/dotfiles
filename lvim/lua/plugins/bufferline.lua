@@ -1,0 +1,5 @@
+lvim.keys.normal_mode["<leader>]"] = ":BufferLineCycleNext<CR>"
+lvim.keys.normal_mode["<leader>["] = ":BufferLineCyclePrev<CR>"
+lvim.keys.normal_mode["<leader>}"] = ":BufferLineMoveNextCR>"
+lvim.keys.normal_mode["<leader>{"] = ":BufferLineMovePrev<CR>"
+lvim.keys.normal_mode["<leader>\\"] = ":BufferKill<CR>"
