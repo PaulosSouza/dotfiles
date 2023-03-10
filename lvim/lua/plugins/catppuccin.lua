@@ -3,6 +3,7 @@ require("catppuccin").setup({
     mocha = function(mocha)
       return {
         LineNr = { fg = mocha.overlay0 },
+        Comment = { fg = mocha.overlay1 }
       }
     end,
   },
