@@ -1,5 +1,4 @@
 local opt = vim.opt
-local lsp = vim.lsp
 local autocmd = vim.api.nvim_create_autocmd
 
 opt.cursorline = false
@@ -11,9 +10,7 @@ autocmd("BufEnter", {
   end,
 })
 
-autocmd("BufWritePre", {
-  pattern = "*",
-  callback = function()
-    lsp.buf.format { async = true }
-  end,
-})
+opt.foldcolumn = "0"
+opt.foldlevel = 999999
+opt.foldlevelstart = 99
+opt.foldenable = true

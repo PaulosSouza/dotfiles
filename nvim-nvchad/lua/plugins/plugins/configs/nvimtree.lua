@@ -73,4 +73,6 @@ local options = {
   },
 }
 
+vim.g.nvimtree_side = options.view.side
+
 return options

@@ -63,21 +63,23 @@ local plugins = {
   },
 
   {
-    "otavioschwanck/cool-substitute.nvim",
-    lazy = false,
-    opts = overrides.cool_substitute,
-    config = function(_, opts)
-      require("cool-substitute").setup(opts)
-    end,
-  },
-
-  {
     "goolord/alpha-nvim",
     lazy = false,
     config = function()
       local dash_config = overrides.alpha.config()
 
       require("alpha").setup(dash_config)
+    end,
+  },
+
+  {
+    "kevinhwang91/nvim-ufo",
+    lazy = false,
+    dependencies = {
+      "kevinhwang91/promise-async",
+    },
+    config = function(_, opts)
+      require("ufo").setup(opts)
     end,
   },
 
@@ -144,6 +146,23 @@ local plugins = {
         ["pwa-node"] = exts,
         ["node-terminal"] = exts,
       })
+    end,
+  },
+
+  {
+    "Pocco81/auto-save.nvim",
+    lazy = false,
+    opts = overrides.auto_save,
+    config = function(_, opts)
+      require("auto-save").setup(opts)
+    end,
+  },
+
+  {
+    "simrat39/symbols-outline.nvim",
+    lazy = false,
+    config = function(_, opts)
+      require("symbols-outline").setup(opts)
     end,
   },
 }

@@ -1,5 +1,9 @@
 -- All plugins have lazy=true by default,to load a plugin on startup just lazy=false
 -- List of all default plugins & their definitions
+--
+
+local override = require "custom.configs.overrides"
+
 local default_plugins = {
 
   "nvim-lua/plenary.nvim",
@@ -81,7 +85,7 @@ local default_plugins = {
       return require "plugins.configs.treesitter"
     end,
     config = function(_, opts)
-      dofile(vim.g.base46_cache .. "syntax")
+      pcall(dofile, vim.g.base46_cache .. "syntax")
       require("nvim-treesitter.configs").setup(opts)
     end,
   },
@@ -119,7 +123,9 @@ local default_plugins = {
     "williamboman/mason.nvim",
     cmd = { "Mason", "MasonInstall", "MasonInstallAll", "MasonUninstall", "MasonUninstallAll", "MasonLog" },
     opts = function()
-      return require "plugins.configs.mason"
+      local default = require "plugins.configs.mason"
+
+      return vim.tbl_deep_extend("force", default, override.mason)
     end,
     config = function(_, opts)
       dofile(vim.g.base46_cache .. "mason")
@@ -129,8 +135,6 @@ local default_plugins = {
       vim.api.nvim_create_user_command("MasonInstallAll", function()
         vim.cmd("MasonInstall " .. table.concat(opts.ensure_installed, " "))
       end, {})
-
-      vim.g.mason_binaries_list = opts.ensure_installed
     end,
   },
 
@@ -151,9 +155,8 @@ local default_plugins = {
         -- snippet plugin
         "L3MON4D3/LuaSnip",
         dependencies = "rafamadriz/friendly-snippets",
-        opts = { history = true, updateevents = "TextChanged,TextChangedI" },
-        config = function(_, opts)
-          require("plugins.configs.others").luasnip(opts)
+        config = function()
+          require("plugins.configs.others").luasnip()
         end,
       },
 
@@ -211,7 +214,6 @@ local default_plugins = {
     config = function(_, opts)
       dofile(vim.g.base46_cache .. "nvimtree")
       require("nvim-tree").setup(opts)
-      vim.g.nvimtree_side = opts.view.side
     end,
   },
 
@@ -257,4 +259,7 @@ if #config.plugins > 0 then
   table.insert(default_plugins, { import = config.plugins })
 end
 
-require("lazy").setup(default_plugins, config.lazy_nvim)
+-- lazy_nvim startup opts
+local lazy_config = vim.tbl_deep_extend("force", require "plugins.configs.lazy_nvim", config.lazy_nvim)
+
+require("lazy").setup(default_plugins, lazy_config)
