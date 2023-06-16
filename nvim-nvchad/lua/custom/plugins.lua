@@ -22,6 +22,7 @@ local plugins = {
 
   {
     "nvim-treesitter/nvim-treesitter",
+    event = "VeryLazy",
     opts = overrides.treesitter,
     dependencies = {
       "windwp/nvim-ts-autotag",
@@ -164,6 +165,14 @@ local plugins = {
     config = function(_, opts)
       require("symbols-outline").setup(opts)
     end,
+  },
+
+  {
+    "ggandor/lightspeed.nvim",
+    lazy = false,
+    dependencies = {
+      "tpope/vim-repeat",
+    },
   },
 }
 

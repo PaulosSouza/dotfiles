@@ -14,3 +14,4 @@ opt.foldcolumn = "0"
 opt.foldlevel = 999999
 opt.foldlevelstart = 99
 opt.foldenable = true
+

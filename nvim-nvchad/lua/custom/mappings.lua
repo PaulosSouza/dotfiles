@@ -1,4 +1,4 @@
---@type MappingsTable
+
 
 ---@type MappingsTable
 local M = {}
