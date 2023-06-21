@@ -31,6 +31,8 @@ M.treesitter = {
     "bash",
     "scss",
     "http",
+    "vue",
+    "glimmer",
   },
   indent = {
     enable = true,
@@ -80,6 +82,7 @@ M.mason = {
     "gofumpt",
     "goimports-reviser",
     "emmet-ls",
+    "glint",
   },
 }
 

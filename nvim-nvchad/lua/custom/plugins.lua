@@ -1,6 +1,7 @@
 local g = vim.g
 local overrides = require "custom.configs.overrides"
 local debugers = require "custom.configs.debugs"
+local utils = require "core.utils"
 
 ---@type NvPluginSpec[]
 local plugins = {
@@ -40,6 +41,11 @@ local plugins = {
   },
 
   {
+    "williamboman/mason.nvim",
+    opts = overrides.mason,
+  },
+
+  {
     "karb94/neoscroll.nvim",
     event = "WinScrolled",
     config = function()
@@ -61,6 +67,9 @@ local plugins = {
     "folke/trouble.nvim",
     lazy = false,
     dependencies = { "nvim-tree/nvim-web-devicons" },
+    config = function()
+      utils.load_mappings "trouble"
+    end,
   },
 
   {
@@ -147,6 +156,8 @@ local plugins = {
         ["pwa-node"] = exts,
         ["node-terminal"] = exts,
       })
+
+      utils.load_mappings "debugger"
     end,
   },
 

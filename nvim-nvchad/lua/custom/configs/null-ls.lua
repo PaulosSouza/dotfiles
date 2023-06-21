@@ -13,7 +13,7 @@ local sources = {
   -- formatting
 
   -- webdev stuff
-  formatting.prettierd.with { filetypes = { "html", "markdown", "css", "less", "sass", "scss" } },
+  formatting.prettierd.with { filetypes = { "html", "markdown", "css", "less", "sass", "scss", "handlebars" } },
   diagnostics.editorconfig_checker,
 
   -- eslint

@@ -1,5 +1,3 @@
-
-
 ---@type MappingsTable
 local M = {}
 
@@ -10,13 +8,17 @@ M.general = {
     ["L"] = { "$", "beginning of line" },
     ["q"] = { ":q<cr>" },
     ["Q"] = { ":qa!<cr>" },
+    ["<leader>fg"] = { ":LazyGit<cr>", "lazygit" },
+
+    -- Splits
     ["<leader>sv"] = { ":vsplit<cr>", "split vertically" },
     ["<leader>sh"] = { ":split<cr>", "split horizontally" },
     ["<leader>ss"] = { ":SymbolsOutline<cr>", "Symbols Outline" },
-    ["<leader>fg"] = { ":LazyGit<cr>", "lazygit" },
-    ["gr"] = { ":Trouble lsp_references<cr>", "References", opts = { silent = true, noremap = true } },
-    ["gd"] = { ":Trouble lsp_definitions<cr>", "Definitions", opts = { silent = true, noremap = true } },
-    ["gD"] = { ":Trouble document_diagnostics<cr>", "Document Diagnostics", opts = { silent = true, noremap = true } },
+
+    -- Tabs
+    ["<leader>tn"] = { ":tabnew<cr>", "New tab" },
+    ["<leader>tl"] = { ":tabnext<cr>", "Next tab" },
+    ["<leader>th"] = { ":tabprevious<cr>", "Previous tab" },
   },
   v = {
     ["H"] = { "^" },
@@ -24,19 +26,10 @@ M.general = {
   },
 }
 
-M.tabs = {
-  plugin = true,
-  n = {
-    ["<leader>tn"] = { ":tabnew<cr>", "New tab" },
-    ["<leader>tl"] = { ":tabnext<cr>", "Next tab" },
-    ["<leader>th"] = { ":tabprevious<cr>", "Previous tab" },
-  },
-}
-
 M.debugger = {
   plugin = true,
+
   n = {
-    -- leader
     ["<leader>dt"] = { ":lua require'dap'.toggle_breakpoint()<cr>", "Toggle Breakpoint" },
     ["<leader>db"] = { ":lua require'dap'.step_back()<cr>", "Step Back" },
     ["<leader>dc"] = { ":lua require'dap'.continue()<cr>", "Continue" },
@@ -56,6 +49,24 @@ M.debugger = {
     ["<F10>"] = { ":lua require'dap'.step_over()<cr>", "Step Over" },
     ["<F11>"] = { ":lua require'dap'.step_into()<cr>", "Step Into" },
     ["<F12>"] = { ":lua require'dap'.close()<cr>", "Quit" },
+  },
+}
+
+M.telescope = {
+  plugin = true,
+
+  n = {
+    ["<leader>fs"] = { "<cmd> Telescope grep_string <CR>", "Find Word" },
+  },
+}
+
+M.trouble = {
+  plugin = true,
+
+  n = {
+    ["gr"] = { ":Trouble lsp_references<cr>", "References", opts = { silent = true, noremap = true } },
+    ["gd"] = { ":Trouble lsp_definitions<cr>", "Definitions", opts = { silent = true, noremap = true } },
+    ["gD"] = { ":Trouble document_diagnostics<cr>", "Document Diagnostics", opts = { silent = true, noremap = true } },
   },
 }
 
