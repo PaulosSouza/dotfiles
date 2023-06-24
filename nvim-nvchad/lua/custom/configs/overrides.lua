@@ -83,6 +83,7 @@ M.mason = {
     "goimports-reviser",
     "emmet-ls",
     "glint",
+    "tailwindcss-language-server",
   },
 }
 
