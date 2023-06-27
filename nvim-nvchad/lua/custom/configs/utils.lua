@@ -1,10 +1,10 @@
 local M = {}
 
-M.vue_dir = "/home/paulosouza/Personal/vue/"
+M.vue_dir = ""
 local util = require "lspconfig.util"
 
 M.get_typescript_server_path = function(root_dir)
-  local global_ts = "/home/paulosouza/.asdf/installs/nodejs/18.16.0/.npm/lib/node_modules/typescript/lib"
+  local global_ts = ""
   local found_ts = ""
   local function check_dir(path)
     found_ts = util.path.join(path, "node_modules", "typescript", "lib")
