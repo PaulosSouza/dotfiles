@@ -1,13 +1,23 @@
 local on_attach = require("plugins.configs.lspconfig").on_attach
 local capabilities = require("plugins.configs.lspconfig").capabilities
 
-local utils = require("custom.configs.utils")
+local utils = require "custom.configs.utils"
 
 local lspconfig = require "lspconfig"
 local lspconfig_util = lspconfig.util
 
 -- if you just want default config for the servers then put them in a table
-local servers = { "html", "cssls", "clangd", "dotls", "jsonls", "dockerls", "gopls", "tailwindcss" }
+local servers = {
+  "html",
+  "cssls",
+  "clangd",
+  "dotls",
+  "jsonls",
+  "dockerls",
+  "gopls",
+  "tailwindcss",
+  "docker_compose_language_service",
+}
 
 lspconfig.tsserver.setup {
   on_attach = on_attach,
@@ -17,7 +27,8 @@ lspconfig.tsserver.setup {
     local is_vue_dir = string.find(uri, utils.vue_dir)
 
     if is_vue_dir == nil then
-      return lspconfig_util.root_pattern("package.json", "tsconfig.json", "jsconfig.json", ".git")(fname) or vim.loop.cwd()
+      return lspconfig_util.root_pattern("package.json", "tsconfig.json", "jsconfig.json", ".git")(fname)
+        or vim.loop.cwd()
     end
 
     return nil

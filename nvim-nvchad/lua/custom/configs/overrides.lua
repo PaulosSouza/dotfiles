@@ -84,6 +84,9 @@ M.mason = {
     "emmet-ls",
     "glint",
     "tailwindcss-language-server",
+    "gomodifytags",
+    "yq",
+    "docker-compose-language-service"
   },
 }
 
@@ -293,6 +296,7 @@ M.auto_save = {
       return ""
     end,
   },
+  debounce_delay = 500,
 }
 
 return M

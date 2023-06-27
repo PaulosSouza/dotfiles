@@ -29,10 +29,13 @@ local sources = {
   diagnostics.jsonlint,
 
   -- go
+  code_actions.gomodifytags,
   formatting.goimports_reviser,
   formatting.gofumpt,
+  -- diagnostics.golangci_lint,
 
-  diagnostics.golangci_lint,
+  -- yml
+  formatting.yq,
 }
 
 null_ls.setup {
