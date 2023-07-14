@@ -74,7 +74,6 @@ M.mason = {
     "dot-language-server",
     "stylelint-lsp",
     "json-lsp",
-    "js-debug-adapter",
     "fixjson",
     "jsonlint",
     "dockerfile-language-server",
@@ -86,7 +85,8 @@ M.mason = {
     "tailwindcss-language-server",
     "gomodifytags",
     "yq",
-    "docker-compose-language-service"
+    "docker-compose-language-service",
+    "vue-language-server",
   },
 }
 

@@ -63,6 +63,7 @@ local default_plugins = {
 
   {
     "lukas-reineke/indent-blankline.nvim",
+    version = "2.20.7",
     init = function()
       require("core.utils").lazy_load "indent-blankline.nvim"
     end,
@@ -201,10 +202,12 @@ local default_plugins = {
   {
     "numToStr/Comment.nvim",
     keys = {
-      { "gcc", mode = "n", desc = "Toggles comment on current line" },
-      { "gc", mode = { "n", "o", "x" }, desc = "Toggles comment on current line's region" },
-      { "gbc", mode = "n", desc = "Toggles blockwise comment on current line" },
-      { "gb", mode = { "n", "o", "x" }, desc = "Toggles blockwise comment on region" },
+      { "gcc", mode = "n", desc = "Comment toggle current line" },
+      { "gc", mode = { "n", "o" }, desc = "Comment toggle linewise" },
+      { "gc", mode = "x", desc = "Comment toggle linewise (visual)" },
+      { "gbc", mode = "n", desc = "Comment toggle current block" },
+      { "gb", mode = { "n", "o" }, desc = "Comment toggle blockwise" },
+      { "gb", mode = "x", desc = "Comment toggle blockwise (visual)" },
     },
     init = function()
       require("core.utils").load_mappings "comment"

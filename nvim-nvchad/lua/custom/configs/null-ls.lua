@@ -17,9 +17,9 @@ local sources = {
   diagnostics.editorconfig_checker,
 
   -- eslint
-  formatting.eslint_d,
-  diagnostics.eslint_d,
-  code_actions.eslint_d,
+  -- formatting.eslint,
+  -- diagnostics.eslint,
+  -- code_actions.eslint,
 
   -- Lua
   formatting.stylua,

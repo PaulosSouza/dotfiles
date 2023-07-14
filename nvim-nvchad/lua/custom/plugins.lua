@@ -95,7 +95,7 @@ local plugins = {
 
   {
     "mfussenegger/nvim-dap",
-    -- lazy = false,
+    lazy = false,
     config = function()
       overrides.dap.setup()
     end,
@@ -103,7 +103,7 @@ local plugins = {
 
   {
     "rcarriga/nvim-dap-ui",
-    -- lazy = false,
+    lazy = false,
     config = function()
       overrides.dap_ui.setup()
     end,
@@ -111,9 +111,15 @@ local plugins = {
 
   {
     "mxsdev/nvim-dap-vscode-js",
-    -- lazy = false,
+    lazy = false,
     opts = debugers.vscode_js,
-    config = function()
+    dependencies = {
+      "microsoft/vscode-js-debug",
+      build = "npm install --legacy-peer-deps && npx gulp vsDebugServerBundle && mv dist out",
+    },
+    config = function(_, opts)
+      require("dap-vscode-js").setup(opts)
+
       local exts = {
         "javascript",
         "typescript",
@@ -143,7 +149,7 @@ local plugins = {
             cwd = "${workspacefolder}",
           },
           {
-            name = "attach to node process",
+            name = "Attach to node process",
             type = "pwa-node",
             request = "attach",
             rootpath = "${workspacefolder}",
@@ -205,6 +211,31 @@ local plugins = {
 
       require("leap").opts.highlight_unlabeled_phase_one_targets = true
       return require("leap").add_default_mappings(opts)
+    end,
+  },
+
+  {
+    "iamcco/markdown-preview.nvim",
+    build = "cd app && yarn install",
+    cmd = { "MarkdownPreview", "MarkdownPreviewStop", "MarkdownPreviewToggle" },
+    event = "VeryLazy",
+  },
+
+  {
+    "Pocco81/true-zen.nvim",
+    event = "VeryLazy",
+    config = function()
+      require("true-zen").setup()
+      utils.load_mappings "true_zen"
+    end,
+  },
+
+  {
+    "beauwilliams/focus.nvim",
+    event = "VeryLazy",
+    config = function()
+      require("focus").setup { cursorline = false, signcolumn = false }
+      utils.load_mappings "focus"
     end,
   },
 }
