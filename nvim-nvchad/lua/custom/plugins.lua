@@ -1,6 +1,5 @@
 local g = vim.g
 local overrides = require "custom.configs.overrides"
-local debugers = require "custom.configs.debugs"
 local utils = require "core.utils"
 
 ---@type NvPluginSpec[]
@@ -65,7 +64,7 @@ local plugins = {
 
   {
     "folke/trouble.nvim",
-    lazy = false,
+    event = "VeryLazy",
     dependencies = { "nvim-tree/nvim-web-devicons" },
     config = function()
       utils.load_mappings "trouble"
@@ -94,82 +93,8 @@ local plugins = {
   },
 
   {
-    "mfussenegger/nvim-dap",
-    lazy = false,
-    config = function()
-      overrides.dap.setup()
-    end,
-  },
-
-  {
-    "rcarriga/nvim-dap-ui",
-    lazy = false,
-    config = function()
-      overrides.dap_ui.setup()
-    end,
-  },
-
-  {
-    "mxsdev/nvim-dap-vscode-js",
-    lazy = false,
-    opts = debugers.vscode_js,
-    dependencies = {
-      "microsoft/vscode-js-debug",
-      build = "npm install --legacy-peer-deps && npx gulp vsDebugServerBundle && mv dist out",
-    },
-    config = function(_, opts)
-      require("dap-vscode-js").setup(opts)
-
-      local exts = {
-        "javascript",
-        "typescript",
-        "javascriptreact",
-        "typescriptreact",
-      }
-
-      for _, language in ipairs(exts) do
-        require("dap").configurations[language] = {
-          {
-            name = "Launch",
-            type = "pwa-node",
-            request = "launch",
-            program = "${file}",
-            rootPath = "${workspaceFolder}",
-            cwd = "${workspaceFolder}",
-            sourceMaps = true,
-            skipFiles = { "<node_internals>/**" },
-            protocol = "inspector",
-            console = "integratedTerminal",
-          },
-          {
-            type = "pwa-node",
-            request = "launch",
-            name = "launch file",
-            program = "${file}",
-            cwd = "${workspacefolder}",
-          },
-          {
-            name = "Attach to node process",
-            type = "pwa-node",
-            request = "attach",
-            rootpath = "${workspacefolder}",
-            processid = require("dap.utils").pick_process,
-          },
-        }
-      end
-
-      require("dap.ext.vscode").load_launchjs(nil, {
-        ["pwa-node"] = exts,
-        ["node-terminal"] = exts,
-      })
-
-      utils.load_mappings "debugger"
-    end,
-  },
-
-  {
     "Pocco81/auto-save.nvim",
-    lazy = false,
+    event = "VeryLazy",
     opts = overrides.auto_save,
     config = function(_, opts)
       require("auto-save").setup(opts)
@@ -178,7 +103,7 @@ local plugins = {
 
   {
     "simrat39/symbols-outline.nvim",
-    lazy = false,
+    event = "VeryLazy",
     config = function(_, opts)
       require("symbols-outline").setup(opts)
     end,
@@ -231,11 +156,11 @@ local plugins = {
   },
 
   {
-    "beauwilliams/focus.nvim",
+    "akinsho/git-conflict.nvim",
     event = "VeryLazy",
+    version = "*",
     config = function()
-      require("focus").setup { cursorline = false, signcolumn = false }
-      utils.load_mappings "focus"
+      require("git-conflict").setup {}
     end,
   },
 }

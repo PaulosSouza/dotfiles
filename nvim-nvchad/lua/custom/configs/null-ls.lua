@@ -24,6 +24,9 @@ local sources = {
   -- Lua
   formatting.stylua,
 
+  -- Bash
+  formatting.beautysh,
+
   -- json
   formatting.fixjson,
   diagnostics.jsonlint,

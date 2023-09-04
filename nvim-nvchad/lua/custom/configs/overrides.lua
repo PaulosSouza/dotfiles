@@ -87,6 +87,8 @@ M.mason = {
     "yq",
     "docker-compose-language-service",
     "vue-language-server",
+    "bash-language-server",
+    "beautysh"
   },
 }
 

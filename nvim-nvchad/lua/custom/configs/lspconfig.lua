@@ -38,6 +38,7 @@ local servers = {
   "tailwindcss",
   "docker_compose_language_service",
   "eslint",
+  "bashls"
 }
 
 lspconfig.tsserver.setup {

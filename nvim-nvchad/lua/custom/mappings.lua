@@ -23,6 +23,8 @@ M.general = {
 
     -- Splits
     ["<leader>ss"] = { ":SymbolsOutline<cr>", "Symbols Outline" },
+    ["\\"] = { ":vsplit<cr>", "Split vertically" },
+    ["|"] = { ":split<cr>", "Split horizontally" },
 
     -- Tabs
     ["<leader>tn"] = { ":tabnew<cr>", "New tab" },
@@ -32,7 +34,17 @@ M.general = {
     ["<leader>fm"] = {
       function()
         local currentFileTypes = vim.api.nvim_buf_get_option(0, "filetype")
-        local filetypesAvailable = { "javascript", "typescript", "javascriptreact", "typescriptreact", "vue" }
+        local filetypesAvailable = {
+          "javascript",
+          "javascriptreact",
+          "javascript.jsx",
+          "typescript",
+          "typescriptreact",
+          "typescript.tsx",
+          "vue",
+          "svelte",
+          "astro",
+        }
 
         local isFileTypeAvailable = table.indexOf(filetypesAvailable, currentFileTypes) ~= -1
 
@@ -81,7 +93,8 @@ M.telescope = {
   plugin = true,
 
   n = {
-    ["<leader>fs"] = { "<cmd> Telescope grep_string <CR>", "Find Word" },
+    ["<leader>fs"] = { "<cmd> Telescope grep_string <CR>", "Find word" },
+    ["<leader>fr"] = { "<cmd> Telescope registers <CR>", "Find registers", opts = default_opts },
   },
 }
 
@@ -92,6 +105,9 @@ M.trouble = {
     ["gr"] = { ":Trouble lsp_references<cr>", "References", opts = { silent = true, noremap = true } },
     ["gd"] = { ":Trouble lsp_definitions<cr>", "Definitions", opts = { silent = true, noremap = true } },
     ["gD"] = { ":Trouble document_diagnostics<cr>", "Document Diagnostics", opts = { silent = true, noremap = true } },
+    ["gt"] = { ":Trouble lsp_type_definitions<cr>", "Type Definitions", opts = { silent = true, noremap = true } },
+    ["gi"] = { ":Trouble lsp_implementations<cr>", "Implementations", opts = { silent = true, noremap = true } },
+    ["gw"] = { ":Trouble workspace_diagnostics<cr>", "Workspace Diagnostics", opts = { silent = true, noremap = true } },
   },
 }
 
@@ -107,18 +123,6 @@ M.true_zen = {
 
   v = {
     ["<leader>zn"] = { ":'<,'>TZNarrow<cr>", "Zen Ataraxis" },
-  },
-}
-
-M.focus = {
-  plugin = true,
-
-  n = {
-    ["<leader>sl"] = { ":FocusSplitLeft<CR>", "Split Left", opts = { silent = true } },
-    ["<leader>sj"] = { ":FocusSplitDown<CR>", "Split Down", opts = { silent = true } },
-    ["<leader>sk"] = { ":FocusSplitUp<CR>", "Split Up", opts = { silent = true } },
-    ["<leader>sm"] = { ":FocusMaxOrEqual<CR>", "Split Up", opts = { silent = true } },
-    ["<leader>st"] = { ":FocusToggle<CR>", "Split Up", opts = { silent = true } },
   },
 }
 
