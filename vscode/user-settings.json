@@ -1,98 +1,354 @@
 {
-    "editor.fontFamily": "JetBrainsMono Nerd Font",
+    "editor.fontFamily": "Fira Code",
     "editor.fontSize": 14,
     "editor.lineHeight": 32,
-    "workbench.productIconTheme": "fluent-icons",
-    "workbench.iconTheme": "material-icon-theme",
     "editor.minimap.enabled": false,
     "editor.cursorBlinking": "solid",
     "editor.smoothScrolling": true,
+    "editor.fontLigatures": true,
+    "editor.rulers": [80, 120],
+    "editor.codeActionsOnSave": {
+      "source.fixAll.eslint": true,
+      "source.addMissingImports": true
+    },
+  
+    // Emmet
+    "emmet.syntaxProfiles": {
+      "javascript": "jsx"
+    },
+    "emmet.includeLanguages": {
+      "javascript": "javascriptreact"
+    },
+  
+    // Workbench
+    "workbench.productIconTheme": "fluent-icons",
+    "workbench.iconTheme": "material-icon-theme",
     
+    // Eslint
+    "eslint.format.enable": true,
     "eslint.validate": [
-        "typescript",
-        "typescriptreact",
-        "javascript",
-        "javascriptreact"
+      "typescript",
+      "typescriptreact",
+      "javascript",
+      "javascriptreact"
     ],
+  
+    // Explorer
+    "explorer.compactFolders": false,
+  
+    // Files
+    "files.autoSave": "afterDelay",
+    "files.autoSaveDelay": 1500,
+  
+    // Languages
     "[jsonc]": {
-        "editor.defaultFormatter": "vscode.json-language-features"
+      "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "[json]": {
+      "editor.defaultFormatter": "esbenp.prettier-vscode"
     },
     "[typescript]": {
-        "editor.codeActionsOnSave": {
-            "source.fixAll.eslint": true
-        }
+      "editor.defaultFormatter": "dbaeumer.vscode-eslint",
+      "editor.codeActionsOnSave": {
+        "source.fixAll.eslint": true
+      }
     },
     "[javascript]": {
-        "editor.codeActionsOnSave": {
-            "source.fixAll.eslint": true
-        }
+      "editor.defaultFormatter": "dbaeumer.vscode-eslint",
+      "editor.codeActionsOnSave": {
+        "source.fixAll.eslint": true
+      }
     },
     "[javascriptreact]": {
-        "editor.codeActionsOnSave": {
-            "source.fixAll.eslint": true
-        }
+      "editor.defaultFormatter": "dbaeumer.vscode-eslint",
+      "editor.codeActionsOnSave": {
+        "source.fixAll.eslint": true
+      }
     },
     "[typescriptreact]": {
-        "editor.codeActionsOnSave": {
-            "source.fixAll.eslint": true
-        }
+      "editor.defaultFormatter": "dbaeumer.vscode-eslint",
+      "editor.codeActionsOnSave": {
+        "source.fixAll.eslint": true
+      }
+    },
+  
+    // Terminal
+    "terminal.integrated.fontFamily": "JetbrainsMono Nerd Font",
+    "terminal.integrated.fontSize": 16,
+  
+    // Material icons
+    "material-icon-theme.folders.associations": {
+      "adapters": "contract",
+      "grpc": "pipe",
+      "kube": "kubernetes",
+      "main": "lib",
+      "websockets": "pipe",
+      "implementations": "core",
+      "protos": "pipe",
+      "entities": "class",
+      "kafka": "pipe",
+      "use-cases": "functions",
+      "migrations": "tools",
+      "schemas": "class",
+      "useCases": "functions",
+      "eslint-config": "tools",
+      "typeorm": "database",
+      "_shared": "shared",
+      "mappers": "meta",
+      "fakes": "mock",
+      "modules": "components",
+      "subscribers": "messages",
+      "domain": "class",
+      "protocols": "contract",
+      "infra": "app",
+      "view-models": "views",
+      "presentation": "template",
+      "dtos": "typescript",
+      "http": "container",
+      "providers": "include",
+      "factories": "class",
+      "repositories": "mappings"
     },
     // Workbench
     "workbench.startupEditor": "none",
-    "workbench.colorTheme": "Nord",
-    "workbench.activityBar.visible": false,
-
+    "workbench.colorTheme": "Catppuccin Frappé",
+  
     // Git
     "git.autofetch": true,
-
-  "editor.codeActionsOnSave": {
-    "source.fixAll.eslint": true,
-    "source.addMissingImports": true
-  },
-
-  // Explorer
-  "explorer.compactFolders": false,
-
-  // Material icon
-  "material-icon-theme.folders.associations": {
-    "adapters": "contract",
-    "grpc": "pipe",
-    "kube": "kubernetes",
-    "main": "lib",
-    "websockets": "pipe",
-    "implementations": "core",
-    "protos": "pipe",
-    "entities": "class",
-    "kafka": "pipe",
-    "use-cases": "functions",
-    "migrations": "tools",
-    "schemas": "class",
-    "useCases": "functions",
-    "eslint-config": "tools",
-    "typeorm": "database",
-    "_shared": "shared",
-    "mappers": "meta",
-    "fakes": "mock",
-    "modules": "components",
-    "subscribers": "messages",
-    "domain": "class",
-    "protocols": "contract",
-    "infra": "app",
-    "view-models": "views",
-    "presentation": "template",
-    "dtos": "typescript",
-    "http": "container",
-    "pubsub": "app",
-    "providers": "include",
-    "factories": "class",
-    "repositories": "mappings"
-  },
-
-  // Files
-  "files.autoSave": "afterDelay",
-  "files.autoSaveDelay": 1500,
-    
+  
     // Neovim configs
     "vscode-neovim.neovimExecutablePaths.linux": "/usr/bin/nvim",
     "vscode-neovim.neovimInitVimPaths.linux": "$HOME/.config/nvim/init.lua",
-}
+  
+    // Whichkey
+    "whichkey.bindings": [
+      {
+        "key": ";",
+        "name": "commands",
+        "type": "command",
+        "command": "workbench.action.showCommands"
+      },
+      {
+        "key": "t",
+        "name": "Toggle Terminal",
+        "type": "command",
+        "command": "workbench.action.togglePanel"
+      },
+      {
+        "key": "b",
+        "name": "Buffers/Editors...",
+        "type": "bindings",
+        "bindings": [
+          {
+            "key": "b",
+            "name": "Show all buffers/editors",
+            "type": "command",
+            "command": "workbench.action.showAllEditors"
+          },
+          {
+            "key": "m",
+            "name": "Close other editors",
+            "type": "command",
+            "command": "workbench.action.closeOtherEditors"
+          },
+          {
+            "key": "u",
+            "name": "Reopen closed editor",
+            "type": "command",
+            "command": "workbench.action.reopenClosedEditor"
+          },
+          {
+            "key": "y",
+            "name": "Copy buffer to clipboard",
+            "type": "commands",
+            "commands": [
+              "editor.action.selectAll",
+              "editor.action.clipboardCopyAction",
+              "cancelSelection"
+            ]
+          }
+        ]
+      },
+      {
+        "key": "e",
+        "name": "Toggle Explorer",
+        "type": "command",
+        "command": "workbench.action.toggleSidebarVisibility"
+      },
+      {
+        "key": "a",
+        "name": "Toggle Activity Bar",
+        "type": "command",
+        "command": "workbench.action.toggleActivityBarVisibility"
+      },
+      {
+        "key": "f",
+        "name": "Format buffer",
+        "type": "command",
+        "command": "editor.action.formatDocument"
+      },
+      {
+        "key": "s",
+        "name": "Search...",
+        "type": "bindings",
+        "bindings": [
+          {
+            "key": "f",
+            "name": "File",
+            "type": "command",
+            "command": "workbench.action.quickOpen"
+          },
+          {
+            "key": "d",
+            "name": "Fuzzy Search Buffer",
+            "type": "command",
+            "command": "fuzzySearch.activeTextEditorWithCurrentSelection"
+          },
+          {
+            "key": "e",
+            "name": "Fuzzy Search Buffer with selection",
+            "type": "command",
+            "commands": [
+              "editor.action.addSelectionToNextFindMatch",
+              "fuzzySearch.activeTextEditorWithCurrentSelection"
+            ]
+          },
+          {
+            "key": "t",
+            "name": "Text",
+            "type": "command",
+            "command": "actions.find"
+          }
+        ]
+      },
+      {
+        "key": "h",
+        "name": "Highlight symbol",
+        "type": "transient",
+        "command": "editor.action.wordHighlight.trigger",
+        "bindings": [
+          {
+            "key": "/",
+            "name": "Search in project with selection",
+            "type": "commands",
+            "commands": [
+              "editor.action.addSelectionToNextFindMatch",
+              "workbench.action.findInFiles"
+            ]
+          },
+          {
+            "key": "n",
+            "name": "Next occurrence",
+            "type": "command",
+            "command": "editor.action.wordHighlight.next"
+          },
+          {
+            "key": "p",
+            "name": "Previous occurrence",
+            "type": "command",
+            "command": "editor.action.wordHighlight.prev"
+          },
+          {
+            "key": "N",
+            "name": "Previous occurrence",
+            "type": "command",
+            "command": "editor.action.wordHighlight.prev"
+          }
+        ]
+      },
+      {
+        "key": "w",
+        "name": "+Windows",
+        "type": "bindings",
+        "bindings": [
+          {
+            "key": "v",
+            "name": "Split Vertical",
+            "icon": "split-vertical",
+            "type": "command",
+            "command": "workbench.action.splitEditorDown"
+          },
+          {
+            "key": "h",
+            "name": "Split Horizontal",
+            "icon": "split-horizontal",
+            "type": "command",
+            "command": "workbench.action.splitEditor"
+          }
+        ]
+      },
+      {
+        "key": "z",
+        "name": "+Fold",
+        "type": "bindings",
+        "bindings": [
+          {
+            "key": "a",
+            "name": "Toggle: around a point",
+            "icon": "selection",
+            "type": "command",
+            "command": "editor.toggleFold"
+          },
+          {
+            "key": "b",
+            "name": "Close: all block comments",
+            "icon": "fold",
+            "type": "command",
+            "command": "editor.foldAllBlockComments"
+          },
+          {
+            "key": "c",
+            "name": "Close: at a point",
+            "icon": "fold",
+            "type": "command",
+            "command": "editor.fold"
+          },
+          {
+            "key": "g",
+            "name": "Close: all regions",
+            "icon": "fold",
+            "type": "command",
+            "command": "editor.foldAllMarkerRegions"
+          },
+          {
+            "key": "m",
+            "name": "Close: all",
+            "icon": "fold",
+            "type": "command",
+            "command": "editor.foldAll"
+          },
+          {
+            "key": "o",
+            "name": "Open: at a point",
+            "icon": "unfold",
+            "type": "command",
+            "command": "editor.unfold"
+          },
+          {
+            "key": "r",
+            "name": "Open: all",
+            "icon": "unfold",
+            "type": "command",
+            "command": "editor.unfoldAll"
+          },
+          {
+            "key": "G",
+            "name": "Open: all regions",
+            "icon": "unfold",
+            "type": "command",
+            "command": "editor.unfoldAllMarkerRegions"
+          },
+          {
+            "key": "O",
+            "name": "Open: recursively",
+            "icon": "unfold",
+            "type": "command",
+            "command": "editor.unfoldRecursively"
+          }
+        ]
+      }
+    ],
+    // Catpuccin
+    "catppuccin.italicKeywords": false,
+  }
+  
