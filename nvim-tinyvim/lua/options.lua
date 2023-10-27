@@ -1,4 +1,5 @@
 local opt = vim.opt
+local wo = vim.wo
 
 vim.g.mapleader = " "
 
@@ -32,6 +33,8 @@ opt.undofile = true
 
 opt.timeoutlen = 400
 opt.updatetime = 250
+
+wo.wrap = false
 
 -- add binaries installed by mason.nvim to path
 local is_windows = vim.loop.os_uname().sysname == "Windows_NT"

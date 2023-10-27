@@ -6,7 +6,7 @@ local plugins = {
     "nvim-tree/nvim-tree.lua",
     cmd = { "NvimTreeToggle", "NvimTreeFocus" },
     config = function()
-      require("plugins.configs.nvimtree")
+      require "plugins.configs.nvimtree"
     end,
   },
 
@@ -160,6 +160,11 @@ local plugins = {
   -- one nord theme
   {
     "rmehri01/onenord.nvim",
+    opts = {
+      disable = {
+        background = false,
+      },
+    },
   },
 
   -- neoscroll
@@ -203,11 +208,11 @@ local plugins = {
     config = function()
       require("lspsaga").setup {
         lightbulb = {
-          enable = false
+          enable = false,
         },
         symbol_in_winbar = {
-          enable = false
-        }
+          enable = false,
+        },
       }
     end,
     dependencies = {
@@ -224,6 +229,7 @@ local plugins = {
     end,
   },
 
+  -- whichkey
   {
     "folke/which-key.nvim",
     event = "VeryLazy",
@@ -262,9 +268,31 @@ local plugins = {
       vim.o.timeout = true
       vim.o.timeoutlen = 300
     end,
-    config = function ()
-      require("plugins.configs.whichkey")
-    end
+    config = function()
+      require "plugins.configs.whichkey"
+    end,
+  },
+
+  -- leap
+  {
+    "ggandor/leap.nvim",
+    event = "VeryLazy",
+    dependencies = {
+      "tpope/vim-repeat",
+    },
+    config = function()
+      require "plugins.configs.leap"
+    end,
+  },
+
+  -- JABS(switch buffer)
+  {
+    "matbme/JABS.nvim",
+    config = function()
+      require("jabs").setup {
+        use_devicons = true
+      }
+    end,
   },
 }
 

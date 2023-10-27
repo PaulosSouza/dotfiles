@@ -1,5 +1,5 @@
 return {
-  install = { colorscheme = { "catppuccin" } },
+  install = { colorscheme = { "onenord" } },
   performance = {
     rtp = {
       disabled_plugins = {

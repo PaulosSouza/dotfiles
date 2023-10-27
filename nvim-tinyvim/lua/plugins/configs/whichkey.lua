@@ -11,6 +11,7 @@ wk.register({
       "<cmd> Telescope find_files follow=true no_ignore=true hidden=true <CR>",
       "Find all",
     },
+    b = { "<cmd>Telescope buffers<cr>", "Find Buffers" },
     n = { "<cmd>enew<cr>", "New File" },
     m = {
       function()
@@ -19,6 +20,7 @@ wk.register({
       end,
       "Format",
     },
+    z = { "<cmd> Telescope current_buffer_fuzzy_find <CR>", "Find in current buffer" },
   },
 
   ["<leader>t"] = {
@@ -29,7 +31,7 @@ wk.register({
   },
 
   ["<leader>"] = {
-    x = { "<cmd>bd<cr>", "Close buffer" },
+    x = { "<cmd>JABSOpen <cr>", "Buffer manager" },
   },
 
   ["<leader>/"] = {
@@ -86,8 +88,8 @@ wk.register({
   [">"] = { ">gv", "Indent line" },
 
   -- start and end line
-  ["H"] = { "^" },
-  ["L"] = { "$" },
+  ["H"] = { "^", "end of line" },
+  ["L"] = { "$", "beginning of line" },
 }, { mode = "v" })
 
 wk.register({
