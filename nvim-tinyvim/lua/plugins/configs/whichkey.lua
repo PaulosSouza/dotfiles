@@ -7,6 +7,7 @@ wk.register({
     f = { "<cmd>Telescope find_files<cr>", "Find File" },
     o = { "<cmd>Telescope oldfiles<cr>", "Old File" },
     w = { "<cmd>Telescope live_grep<cr>", "Find Word" },
+    s = { "<cmd>Telescope grep_string<cr>", "Find Selected Word" },
     a = {
       "<cmd> Telescope find_files follow=true no_ignore=true hidden=true <CR>",
       "Find all",
@@ -31,7 +32,21 @@ wk.register({
   },
 
   ["<leader>"] = {
-    x = { "<cmd>JABSOpen <cr>", "Buffer manager" },
+    d = {
+      function()
+        require("plugins.utils").buf_kill "bd"
+      end,
+      "Buffer close",
+    },
+    j = { "<cmd>JABSOpen <cr>", "Buffer manager" },
+    q = { ":q<cr>", "Close buffer" },
+    Q = { ":qa!<cr>", "Close neovim" },
+  },
+
+  ["<leader>m"] = {
+    name = "+muren",
+    o = { "<cmd>MurenToggle <cr>", "Muren Open" },
+    c = { "<cmd>MurenClose <cr>", "Muren Close" },
   },
 
   ["<leader>/"] = {
@@ -47,8 +62,6 @@ wk.register({
 
   ["<Esc>"] = { "<cmd> noh <CR>", "Clear highlights" },
   [";"] = { ":", "Enter command mode" },
-  ["q"] = { ":q<cr>", "Close buffer" },
-  ["Q"] = { ":qa!<cr>", "Close neovim" },
 
   -- split
   ["\\"] = { ":vsplit<cr>", "Split vertically" },
@@ -62,7 +75,7 @@ wk.register({
 
   -- switch buffers
   ["<Tab>"] = { "<cmd> BufferLineCycleNext <CR>", "Goto next buffer" },
-  ["<S-tab>"] = { "<cmd> BufferLineCycleNext <CR>", "Goto prev buffer" },
+  ["<S-tab>"] = { "<cmd> BufferLineCyclePrev <CR>", "Goto prev buffer" },
 
   -- save
   ["<C-s>"] = { "<cmd> w <CR>", "Save file" },

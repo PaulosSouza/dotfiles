@@ -23,16 +23,15 @@ vim.api.nvim_create_autocmd("LspAttach", {
         t = { "<cmd>Trouble lsp_type_definitions<cr>", "Type Definitions" },
         i = { "<cmd>Trouble lsp_implementations<cr>", "Implementations" },
         w = { "<cmd>Trouble workspace_diagnostics<cr>", "Implementations" },
+        s = {
+          function()
+            vim.lsp.buf.signature_help()
+          end,
+          "LSP Hover",
+        },
       },
 
       ["K"] = { "<cmd>Lspsaga hover_doc<cr>", "LSP Hover" },
-
-      ["<C-k>"] = {
-        function()
-          vim.lsp.buf.signature_help()
-        end,
-        "LSP Hover",
-      },
 
       ["<leader>e"] = {
         function()
@@ -93,9 +92,8 @@ local servers = {
   "dotls",
   "jsonls",
   "tailwindcss",
-  "eslint",
   "bashls",
-  "tsserver"
+  "tsserver",
 }
 
 for _, lsp in ipairs(servers) do

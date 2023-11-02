@@ -39,7 +39,7 @@ local plugins = {
     end,
   },
 
-  -- buffer + tab line
+  -- buffer and tabs
   {
     "akinsho/bufferline.nvim",
     event = "BufReadPre",
@@ -149,16 +149,6 @@ local plugins = {
 
   -- one nord theme
   {
-    "catppuccin/nvim",
-    name = "catppuccin",
-    priority = 1000,
-    config = function()
-      require "plugins.configs.catppuccin"
-    end,
-  },
-
-  -- one nord theme
-  {
     "rmehri01/onenord.nvim",
     opts = {
       disable = {
@@ -186,7 +176,7 @@ local plugins = {
     "linrongbin16/lsp-progress.nvim",
     dependencies = { "nvim-tree/nvim-web-devicons" },
     config = function()
-      require("lsp-progress").setup()
+      require "plugins.configs.lsp-progress"
     end,
   },
 
@@ -216,8 +206,8 @@ local plugins = {
       }
     end,
     dependencies = {
-      "nvim-treesitter/nvim-treesitter", -- optional
-      "nvim-tree/nvim-web-devicons", -- optional
+      "nvim-treesitter/nvim-treesitter",
+      "nvim-tree/nvim-web-devicons",
     },
   },
 
@@ -234,18 +224,17 @@ local plugins = {
     "folke/which-key.nvim",
     event = "VeryLazy",
     opts = {
-
       popup_mappings = {
-        scroll_down = "<c-d>", -- binding to scroll down inside the popup
-        scroll_up = "<c-u>", -- binding to scroll up inside the popup
+        scroll_down = "<c-d>",
+        scroll_up = "<c-u>",
       },
 
       window = {
-        border = "none", -- none/single/double/shadow
+        border = "none",
       },
 
       layout = {
-        spacing = 6, -- spacing between columns
+        spacing = 6,
       },
 
       hidden = {
@@ -290,9 +279,41 @@ local plugins = {
     "matbme/JABS.nvim",
     config = function()
       require("jabs").setup {
-        use_devicons = true
+        use_devicons = true,
       }
     end,
+  },
+
+  -- auto save
+  {
+    "Pocco81/auto-save.nvim",
+    event = "VeryLazy",
+    opts = {
+      execution_message = {
+        message = function()
+          return ""
+        end,
+      },
+      debounce_delay = 500,
+    },
+    config = function(_, opts)
+      require("auto-save").setup(opts)
+    end,
+  },
+
+  -- alpha
+  {
+    "goolord/alpha-nvim",
+    dependencies = { "nvim-tree/nvim-web-devicons" },
+    config = function()
+      require "plugins.configs.alpha"
+    end,
+  },
+
+  -- search and replace words
+  {
+    "AckslD/muren.nvim",
+    config = true,
   },
 }
 

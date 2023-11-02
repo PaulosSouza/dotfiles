@@ -30,12 +30,16 @@ require("lualine").setup {
     },
     lualine_b = { "filename" },
     lualine_c = {
+      {
+        component_separators = "",
+        "%=",
+      },
+      require("lsp-progress").progress,
+    },
+    lualine_x = {
       "branch",
       "diff",
       "diagnostics",
-    },
-    lualine_x = {
-      require("lsp-progress").progress,
     },
     lualine_y = { "filetype", "progress" },
     lualine_z = {
